@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 20% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 15%;
+    --primary: 210 50% 25%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 210 15% 95%;
+    --secondary-foreground: 220 20% 15%;
+    --muted: 210 15% 95%;
+    --muted-foreground: 220 10% 45%;
+    --accent: 160 80% 35%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 15% 90%;
+    --input: 210 15% 90%;
+    --ring: 210 50% 25%;
+    --radius: 0.5rem;
+    
+    /* Custom colors for the game */
+    --risk: 0 72% 51%;
+    --control: 210 50% 25%;
+    --money: 160 80% 30%;
+    --neon-blue: 195 100% 50%;
+    --neon-green: 140 100% 50%;
+    --neon-red: 0 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+}
+
+@layer components {
+  .section-container {
+    @apply w-full px-4 sm:px-6 lg:px-8 xl:px-12 py-12 lg:py-16;
+  }
+  
+  .card-elevated {
+    @apply bg-white rounded-xl shadow-lg border border-slate-100;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+  }
+  
+  .glow-risk {
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+  }
+  
+  .glow-control {
+    box-shadow: 0 0 20px rgba(30, 58, 95, 0.3);
+  }
+  
+  .glow-money {
+    box-shadow: 0 0 20px rgba(5, 150, 105, 0.3);
+  }
+  
+  .timeline-line {
+    @apply absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-emerald-500 via-amber-500 to-red-500;
+  }
+  
+  .risk-indicator {
+    @apply relative;
+  }
+  
+  .risk-indicator::after {
+    content: '';
+    @apply absolute -right-2 top-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
